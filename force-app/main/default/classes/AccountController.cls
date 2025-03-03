@@ -11,6 +11,7 @@ public with sharing class AccountController {
 
     @AuraEnabled(cacheable=true)
     public static List<Account> findAccounts(String searchKey){
+        //202533第一次修改1129
         String key = '%' + searchKey + '%';
         return [SELECT Id, Name, Type, Industry FROM Account WHERE Name LIKE :key LIMIT 5];
     }
